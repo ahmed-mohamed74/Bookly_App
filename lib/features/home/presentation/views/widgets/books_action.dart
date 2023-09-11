@@ -1,35 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:my_bookly_app/core/utils/function/launch_url.dart';
 import 'package:my_bookly_app/core/widgets/custom_button.dart';
+import 'package:my_bookly_app/features/home/data/models/BookModel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({Key? key}) : super(key: key);
+  const BooksAction({Key? key, required this.bookModel}) : super(key: key);
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
-        children: const [
+        children: [
           Expanded(
               child: CustomButton(
+            onPressed: () {
+              launchCustomUrl(context, bookModel.volumeInfo.infoLink);
+            },
             backGroundColor: Colors.white,
             textColor: Colors.black,
-            text: '19.99\$',
-            borderRadius: BorderRadius.only(
+            text: 'FREE',
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16), bottomLeft: Radius.circular(16)),
           )),
           Expanded(
               child: CustomButton(
-            backGroundColor: Color(0xffEF8262),
+            onPressed: () {
+              launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+            },
+            backGroundColor: const Color(0xffEF8262),
             textColor: Colors.white,
-            text: 'Free Preview',
+            text: getText(bookModel),
             fontSize: 16,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(16),
                 bottomRight: Radius.circular(16)),
           )),
         ],
       ),
     );
+  }
+
+  String getText(BookModel bookModel) {
+    if (bookModel.volumeInfo.previewLink == null) {
+      return 'Not Available';
+    } else {
+      return 'Preview';
+    }
   }
 }
