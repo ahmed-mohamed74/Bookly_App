@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_bookly_app/core/utils/styles.dart';
 import 'package:my_bookly_app/features/home/data/models/BookModel.dart';
 import 'package:my_bookly_app/features/home/presentation/views/widgets/book_details_section.dart';
-import 'package:my_bookly_app/features/home/presentation/views/widgets/bookin_rate.dart';
+import 'package:my_bookly_app/features/home/presentation/views/widgets/booking_rate.dart';
 import 'package:my_bookly_app/features/home/presentation/views/widgets/books_action.dart';
 import 'package:my_bookly_app/features/home/presentation/views/widgets/similar_books_section.dart';
 

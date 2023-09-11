@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_bookly_app/features/home/data/models/BookModel.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import 'bookin_rate.dart';
+import 'booking_rate.dart';
 import 'books_action.dart';
 import 'custom_book_image.dart';
 
@@ -20,7 +21,8 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: width * 0.22),
           child: CustomBookImage(
             imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
-                'https://www.directive.com/images/easyblog_shared/November_2018/11-12-18/human_error_stop_400.png',
+                kErrBookImage,
+
           ),
         ),
         const SizedBox(height: 46),
@@ -33,7 +35,7 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            bookModel.volumeInfo.authors?[0] ?? '',
+            bookModel.volumeInfo.authors?[0] ?? 'No Name',
             style: Styles.textStyle18.copyWith(
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
           ),
@@ -51,3 +53,4 @@ class BookDetailsSection extends StatelessWidget {
     );
   }
 }
+//'https://www.directive.com/images/easyblog_shared/November_2018/11-12-18/human_error_stop_400.png',

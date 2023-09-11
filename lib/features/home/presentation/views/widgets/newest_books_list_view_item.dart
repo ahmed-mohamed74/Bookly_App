@@ -5,7 +5,7 @@ import 'package:my_bookly_app/core/utils/app_router.dart';
 import 'package:my_bookly_app/features/home/data/models/BookModel.dart';
 import 'package:my_bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import '../../../../../core/utils/styles.dart';
-import 'bookin_rate.dart';
+import 'booking_rate.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({Key? key, required this.bookModel}) : super(key: key);
@@ -26,7 +26,7 @@ class BookListViewItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: CustomBookImage(
                   imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
-                      'https://www.directive.com/images/easyblog_shared/November_2018/11-12-18/human_error_stop_400.png',
+                      kErrBookImage,
                 )),
             const SizedBox(width: 30),
             Expanded(

@@ -4,6 +4,7 @@ import 'package:my_bookly_app/core/widgets/custom_error_message.dart';
 import 'package:my_bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:my_bookly_app/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 
+import '../../../../../constants.dart';
 import 'custom_book_image.dart';
 
 class SimilarBooksListView extends StatelessWidget {
@@ -23,9 +24,9 @@ class SimilarBooksListView extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: CustomBookImage(
-                      imageUrl: state
-                              .books[index].volumeInfo.imageLinks?.thumbnail ??
-                          'https://www.directive.com/images/easyblog_shared/November_2018/11-12-18/human_error_stop_400.png'),
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                              kErrBookImage),
                 );
               },
             ),

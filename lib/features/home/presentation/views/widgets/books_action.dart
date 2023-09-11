@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_bookly_app/core/utils/function/launch_url.dart';
 import 'package:my_bookly_app/core/widgets/custom_button.dart';
 import 'package:my_bookly_app/features/home/data/models/BookModel.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
   const BooksAction({Key? key, required this.bookModel}) : super(key: key);
@@ -17,7 +16,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
               child: CustomButton(
             onPressed: () {
-              launchCustomUrl(context, bookModel.volumeInfo.infoLink);
+              launchCustomUrl(context, bookModel.accessInfo?.webReaderLink);
             },
             backGroundColor: Colors.white,
             textColor: Colors.black,

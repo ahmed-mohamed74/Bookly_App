@@ -6,6 +6,7 @@ import 'package:my_bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:my_bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:my_bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/utils/app_router.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -31,9 +32,9 @@ class FeaturedBooksListView extends StatelessWidget {
                       extra: state.books[index],
                     ),
                     child: CustomBookImage(
-                      imageUrl: state
-                              .books[index].volumeInfo.imageLinks?.thumbnail ??
-                          'https://www.directive.com/images/easyblog_shared/November_2018/11-12-18/human_error_stop_400.png',
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                              kErrBookImage,
                     ),
                   ),
                 );
